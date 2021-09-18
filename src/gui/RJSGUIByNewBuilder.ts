@@ -23,7 +23,6 @@ export default class RJSGUIByNewBuilder extends RJSGUI {
         const sprts = toAssetList(gui.assets.spritesheets,'spritesheet',gui.assetsPath);
 
         this.assets = imgs.concat(audio).concat(sprts);
-        this.fonts = Object.keys(gui.assets.fonts);
         this.config = gui.config;
     }
 

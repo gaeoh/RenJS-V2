@@ -7,7 +7,7 @@ import jsyaml from 'js-yaml'
 export default class RJSGUIByBuilder extends RJSGUIByNewBuilder {
 
     initAssets(gui: any){
-        // converts assets and fonts
+        // converts assets
         super.initAssets(gui)
 
         // convert to new scheme with elements list per menu 
