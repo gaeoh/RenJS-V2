@@ -7,7 +7,6 @@ import RJSGUIByBuilder from '../gui/RJSGUIByBuilder';
 import RJSGUIByNewBuilder from '../gui/RJSGUIByNewBuilder';
 import RJS from '../core/RJS';
 import RJSLoadingScreen from '../gui/elements/RJSLoadingScreen';
-import CSSImportRule from 'css-font-loader';
 
 
 class Boot extends RJSState {
@@ -87,13 +86,10 @@ class Boot extends RJSState {
             console.error("Old GUI configuration is deprecated!!!!")
             console.error("Check the docs at http://renjs.net/docs-page.html")
         }
-
-        // preload the fonts
-        var CSSFontLoader = require('css-font-loader');
-        if (this.game.config.debugMode) {
-            console.log('Preloading fonts from ' + preparePath(this.game.config.fonts, this.game));
+        // preload the fonts by adding text, else they wont be fully loaded :\
+        for (const font of game.gui.fonts){
+            game.add.text(20, -100, font, {font: '42px ' + font});
         }
-        CSSFontLoader.load(preparePath(this.game.config.fonts, this.game), function () { if (this.game.config.debugMode) { console.log('Fonts loaded.'); } });
         game.state.add('preloadStory', PreloadStory);
         game.state.start('preloadStory');
     }

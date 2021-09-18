@@ -7,6 +7,7 @@ import RJSHUD from './RJSHUD';
 export interface RJSGUIInterface {
     init();
     assets: GUIAsset[]
+    fonts: string[]
 
     showMenu(menu);
     changeMenu(menu): void;
@@ -19,6 +20,7 @@ export default class RJSGUI implements RJSGUIInterface {
     // config = {hud:null, menus: {main:null,settings:null,saveload:null}}
     config: any
     assets: GUIAsset[] = []
+    fonts: string[] = []
     // gui graphical elements
     menus = {string:RJSMenu};
     hud: RJSHUD = null;
@@ -37,7 +39,7 @@ export default class RJSGUI implements RJSGUIInterface {
     // ----------------------------------------------------------------
     initAssets(gui: any){
         // convert specific gui config to general one
-        // has to init this.assets and this.config
+        // has to init this.assets, this.fonts and this.config
     }
 
     async init() {
